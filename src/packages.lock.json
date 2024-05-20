@@ -2,6 +2,32 @@
   "version": 1,
   "dependencies": {
     "net8.0": {
+      "L0gg3r": {
+        "type": "Direct",
+        "requested": "[1.*-*, 2.0.0)",
+        "resolved": "1.0.0-preview.9",
+        "contentHash": "BAwE5d/m8+JkLptXAp7d8v2pr+0lKgt8A9RJyyGE8ZbcWP38UJ781kRPVG9D2eYg0a5TyFF6ekuADBVVEH2rLQ==",
+        "dependencies": {
+          "L0gg3r.Base": "[1.0.0-preview.15, 2.0.0)"
+        }
+      },
+      "L0gg3r.Base": {
+        "type": "Direct",
+        "requested": "[1.*-*, 2.0.0)",
+        "resolved": "1.0.0-preview.15",
+        "contentHash": "hxEV83A1J9VxlDjDs3P0HMy1DcxUY0PKjhQZS+hcSxW+KvXZgse7tl5wNvYWE1E6M8CFQIjF2BFylDyLX8E6Zg=="
+      },
+      "L0gg3r.Builder": {
+        "type": "Direct",
+        "requested": "[1.*-*, 2.0.0)",
+        "resolved": "1.0.0-preview.2",
+        "contentHash": "XGCPh0JLzxPhKuuhq0pCu9q/xXbWLBj3j3FlK/n68APyyhPmJZz3VY5Pw7fn9hU3L7m5Kh3rE8VQO0bC/lAP+A==",
+        "dependencies": {
+          "L0gg3r": "[1.0.0-preview.8, 2.0.0)",
+          "L0gg3r.Base": "[1.0.0-preview.13, 2.0.0)",
+          "L0gg3r.LogSinks.Base": "[1.0.0-preview.6, 2.0.0)"
+        }
+      },
       "L0gg3r.CodeAnalyzer": {
         "type": "Direct",
         "requested": "[1.*-*, 2.0.0)",
@@ -33,6 +59,14 @@
         "requested": "[4.*, 5.0.0)",
         "resolved": "4.3.0",
         "contentHash": "YNVAW3loCFW4kTwensApaZUl+7xREK75QQNOFSbsbXx2sCSm9/IHBjUHsJGn3u0UA5r/sAqrdYBNUlOFfLhUrA=="
+      },
+      "L0gg3r.LogSinks.Base": {
+        "type": "Transitive",
+        "resolved": "1.0.0-preview.6",
+        "contentHash": "q+uu8AydxetsdLAT9ZJWjf5++Auh968hIsmkMQPXzCDEl38eZpoh2J4Ei0zcBCTvClOHfTGP/5PteCKGrKjSKw==",
+        "dependencies": {
+          "L0gg3r.Base": "[1.0.0-preview.11, 2.0.0)"
+        }
       },
       "Microsoft.Extensions.DependencyInjection": {
         "type": "Transitive",
@@ -81,29 +115,6 @@
         "type": "Transitive",
         "resolved": "1.2.0.556",
         "contentHash": "zvn9Mqs/ox/83cpYPignI8hJEM2A93s2HkHs8HYMOAQW0PkampyoErAiIyKxgTLqbbad29HX/shv/6LGSjPJNQ=="
-      },
-      "l0gg3r": {
-        "type": "Project",
-        "dependencies": {
-          "L0gg3r.Base": "[1.0.0-preview.1, )"
-        }
-      },
-      "l0gg3r.base": {
-        "type": "Project"
-      },
-      "l0gg3r.builder": {
-        "type": "Project",
-        "dependencies": {
-          "L0gg3r": "[1.0.0-preview.1, )",
-          "L0gg3r.Base": "[1.0.0-preview.1, )",
-          "L0gg3r.LogSinks.Base": "[1.0.0-preview.1, )"
-        }
-      },
-      "l0gg3r.logsinks.base": {
-        "type": "Project",
-        "dependencies": {
-          "L0gg3r.Base": "[1.0.0-preview.1, )"
-        }
       }
     }
   }

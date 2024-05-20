@@ -29,11 +29,13 @@
 
   <ItemGroup Condition="'$(UseProjectReferences)' != 'true'">
     <PackageReference Include="L0gg3r" Version="[1.*-*, 2)" />
+    <PackageReference Include="L0gg3r.Base" Version="[1.*-*, 2)" />
     <PackageReference Include="L0gg3r.Builder" Version="[1.*-*, 2)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(UseProjectReferences)' == 'true'">
     <ProjectReference Include="$(ProjectsDir)/L0gg3r/src/L0gg3r.csproj" />
+    <ProjectReference Include="$(ProjectsDir)/L0gg3r.Base/src/L0gg3r.Base.csproj" />
     <ProjectReference Include="$(ProjectsDir)/L0gg3r.Builder/src/L0gg3r.Builder.csproj" />
   </ItemGroup>
 

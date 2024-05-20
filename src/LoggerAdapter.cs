@@ -99,7 +99,7 @@ public sealed class LoggerAdapter : ILogger, IAsyncDisposable
     }
 
     /// <inheritdoc/>
-    public bool IsEnabled(LogLevel logLevel) => true;
+    public bool IsEnabled(LogLevel logLevel) => logLevel != LogLevel.None;
 
     /// <inheritdoc/>
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
