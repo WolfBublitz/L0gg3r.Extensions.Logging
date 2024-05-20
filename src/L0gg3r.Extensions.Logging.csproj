@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>Nullable</WarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="Exists($(CI))">true</RestoreLockedMode>
+    <ProjectsDir>$(ProjectDir)../../</ProjectsDir>
+    <Version>1.0.0-preview.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="L0gg3r.CodeAnalyzer" Version="[1.*-*, 2)">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MinVer" Version="[4.*, 5)">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseProjectReferences)' != 'true'">
+    <PackageReference Include="L0gg3r" Version="[1.*-*, 2)" />
+    <PackageReference Include="L0gg3r.Builder" Version="[1.*-*, 2)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseProjectReferences)' == 'true'">
+    <ProjectReference Include="$(ProjectsDir)/L0gg3r/src/L0gg3r.csproj" />
+    <ProjectReference Include="$(ProjectsDir)/L0gg3r.Builder/src/L0gg3r.Builder.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
+  </PropertyGroup>
+
+  <Target Name="Print Build Mode" BeforeTargets="BeforeBuild">
+    <Message Importance="High" Text="Building $(ProjectName) in $(Configuration) mode for $(TargetFramework) with PROJECT references" Condition="'$(UseProjectReferences)' == 'true'" />
+    <Message Importance="High" Text="Building $(ProjectName) in $(Configuration) mode for $(TargetFramework) with PACKAGE references" Condition="'$(UseProjectReferences)' != 'true'" />
+  </Target>
+
+</Project>

@@ -1,0 +1,16 @@
+L0gg3r.Extensions.Logging.ILoggingBuilderExtensions
+L0gg3r.Extensions.Logging.LoggerAdapter
+L0gg3r.Extensions.Logging.LoggerAdapter.BeginScope<TState>(TState state) -> System.IDisposable?
+L0gg3r.Extensions.Logging.LoggerAdapter.DisposeAsync() -> System.Threading.Tasks.ValueTask
+L0gg3r.Extensions.Logging.LoggerAdapter.IsEnabled(Microsoft.Extensions.Logging.LogLevel logLevel) -> bool
+L0gg3r.Extensions.Logging.LoggerAdapter.Log<TState>(Microsoft.Extensions.Logging.LogLevel logLevel, Microsoft.Extensions.Logging.EventId eventId, TState state, System.Exception? exception, System.Func<TState, System.Exception?, string!>! formatter) -> void
+L0gg3r.Extensions.Logging.LoggerAdapter.LoggerAdapter(L0gg3r.Base.ILogger! logger) -> void
+L0gg3r.Extensions.Logging.LoggerAdapter.LoggerAdapter(string! categoryName) -> void
+L0gg3r.Extensions.Logging.LoggerProvider
+L0gg3r.Extensions.Logging.LoggerProvider.CreateLogger(string! categoryName) -> Microsoft.Extensions.Logging.ILogger!
+L0gg3r.Extensions.Logging.LoggerProvider.Dispose() -> void
+L0gg3r.Extensions.Logging.LoggerProvider.LoggerProvider() -> void
+L0gg3r.Extensions.Logging.LoggerProvider.LoggerProvider(L0gg3r.Base.ILogger! logger) -> void
+static L0gg3r.Extensions.Logging.ILoggingBuilderExtensions.AddL0gg3r(this Microsoft.Extensions.Logging.ILoggingBuilder! this) -> Microsoft.Extensions.Logging.ILoggingBuilder!
+static L0gg3r.Extensions.Logging.ILoggingBuilderExtensions.AddL0gg3r(this Microsoft.Extensions.Logging.ILoggingBuilder! this, L0gg3r.Logger! logger) -> Microsoft.Extensions.Logging.ILoggingBuilder!
+static L0gg3r.Extensions.Logging.ILoggingBuilderExtensions.AddL0gg3r(this Microsoft.Extensions.Logging.ILoggingBuilder! this, System.Action<L0gg3r.Builder.LoggerBuilder!>! builder) -> Microsoft.Extensions.Logging.ILoggingBuilder!
