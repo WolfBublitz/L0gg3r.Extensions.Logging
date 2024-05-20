@@ -1,0 +1,47 @@
+name: Build and Publish
+
+on:
+  push:
+    branches: "*"
+    tags: "*"
+  pull_request:
+    branches: "*"
+  release:
+    types:
+      - created
+
+jobs:
+  BuildNugetPackage:
+    name: Build Nuget Package
+    uses: ./.github/workflows/build-nuget-package.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+
+  LoggerAdapterTests:
+    name: LoggerAdapter Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/LoggerAdapterTests/src
+
+  LoggerFactoryTests:
+    name: LoggerFactory Tests
+    needs: [BuildNugetPackage]
+    uses: ./.github/workflows/execute-test.yml
+    with:
+      dotnet-version: 8.0.x
+      configuration: Release
+      project-path: ./tests/LoggerFactoryTests/src
+
+  PublishToGithub:
+    name: Publish to Github
+    needs: [
+      LoggerAdapterTests,
+    ]
+    uses: ./.github/workflows/publish-to-github.yml
+    with:
+      package-path: ./**/*.nupkg
+    if: github.event_name == 'release' && github.event.action == 'created'
